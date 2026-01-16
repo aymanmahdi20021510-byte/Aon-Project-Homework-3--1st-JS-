@@ -587,3 +587,74 @@ function toCSV(data) {
 }
 console.log("Q89:", toCSV([{id: 1, name: "Ayman"}, {id: 2, name: "Ali"}]));
 
+//Function that formats a number with thousands separators (e.g., 1,000)
+function formatNumber(n) {
+    return n.toLocaleString();
+}
+console.log("Q90:", formatNumber(1000000));
+
+//Function that generates an array of unique random numbers
+function uniqueRandoms(count, min, max) {
+    let set = new Set();
+    while (set.size < count) {
+        set.add(Math.floor(Math.random() * (max - min + 1)) + min);
+    }
+    return [...set];
+}
+console.log("Q91:", uniqueRandoms(5, 1, 50));
+
+//Function that checks if a year is a Leap Year
+function isLeapYear(year) {
+    return (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0);
+}
+console.log("Q92:", isLeapYear(2024));
+
+//Function that returns the day name from a specific date
+function getDayName(date) {
+    return new Date(date).toLocaleDateString('en-US', { weekday: 'long' });
+}
+console.log("Q93:", getDayName("2026-01-15"));
+
+//Function that truncates text with an ellipsis if it exceeds a limit
+function truncate(str, limit) {
+    return str.length > limit ? str.slice(0, limit) + "..." : str;
+}
+console.log("Q94:", truncate("JavaScript is amazing", 10));
+
+//Function that calculates the distance between two coordinate points
+function distance(x1, y1, x2, y2) {
+    return Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+}
+console.log("Q95:", distance(0, 0, 3, 4));
+
+//Function that returns the most frequent character in a string
+function maxChar(str) {
+    const charMap = {};
+    for (let char of str) charMap[char] = charMap[char] + 1 || 1;
+    return Object.keys(charMap).reduce((a, b) => charMap[a] > charMap[b] ? a : b);
+}
+console.log("Q96:", maxChar("abcccccccd"));
+
+//Function that checks if an array contains sub-arrays
+function hasSubArray(arr) {
+    return arr.some(Array.isArray);
+}
+console.log("Q97:", hasSubArray([1, [2], 3]));
+
+//Function that calculates the sum of odd numbers only in an array
+function sumOdds(arr) {
+    return arr.filter(n => n % 2 !== 0).reduce((sum, n) => sum + n, 0);
+}
+console.log("Q98:", sumOdds([1, 2, 3, 4, 5]));
+
+//Function that converts a string into a URL Slug (For example: "Hello World" becomes "hello-world")
+function toSlug(str) {
+    return str.toLowerCase().replace(/ /g, "-").replace(/[^\w-]+/g, "");
+}
+console.log("Q99:", toSlug("Hello World! 2026"));
+
+//Function that generates a simple random UUID (Unique ID)
+function generateId() {
+    return Math.random().toString(36).substr(2, 9);
+}
+console.log("Q100:", generateId());
